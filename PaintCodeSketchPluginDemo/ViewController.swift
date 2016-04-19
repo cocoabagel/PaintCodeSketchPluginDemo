@@ -9,17 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var codeSnippetView: CodeSnippetView!
+    
+    @IBAction func colorChange(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            codeSnippetView.color = StyleKit.primalyColor
+        case 1:
+            codeSnippetView.color = StyleKit.secondaryColor
+        default:
+            break
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PaintCodeSketchPluginDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,50 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfx-hU-QYX" customClass="CodeSnippetView" customModule="PaintCodeSketchPluginDemo" customModuleProvider="target">
+                                <rect key="frame" x="256" y="256" width="88" height="88"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="5ES-PL-oYP"/>
+                                    <constraint firstAttribute="width" constant="88" id="8Hl-yi-ybI"/>
+                                    <constraint firstAttribute="height" constant="88" id="TDl-01-6rD"/>
+                                    <constraint firstAttribute="height" constant="88" id="u6l-aA-H2W"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="8Hl-yi-ybI"/>
+                                        <exclude reference="u6l-aA-H2W"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="npa-Fs-vxg">
+                                <rect key="frame" x="185" y="374" width="231" height="29"/>
+                                <segments>
+                                    <segment title="Primary Color"/>
+                                    <segment title="Secondary Color"/>
+                                </segments>
+                                <color key="tintColor" red="0.33112770318984985" green="0.62248128652572632" blue="0.88425320386886597" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="colorChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="gwv-JE-obf"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="npa-Fs-vxg" firstAttribute="top" secondItem="bfx-hU-QYX" secondAttribute="bottom" constant="30" id="2r6-Uh-lQy"/>
+                            <constraint firstItem="bfx-hU-QYX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5XF-Tp-WCm"/>
+                            <constraint firstItem="bfx-hU-QYX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aMQ-hn-FIg"/>
+                            <constraint firstItem="npa-Fs-vxg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fny-DU-7KN"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="codeSnippetView" destination="bfx-hU-QYX" id="tSD-x6-b1O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.33112770318984985" green="0.62248128652572632" blue="0.88425320386886597" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
